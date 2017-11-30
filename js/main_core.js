@@ -1,88 +1,68 @@
 $(document).ready(function() {
 
   var categories = ["Profile", "Economy", "Politics", "Science & Technology", "U.S.", "World"]
-  var articles = {} // { Category: [article] }
-  var sources = {}
-  var allArticles = []
-  var articlesRead = []  // [article]
-  // var biasAverage = 0.0
-  var recs = []
   var selectedCategory = "" // Current selected category
   var selectedArticleIndex = -1  // Current selected article index in articles
   var dateFormat = "ddd, DD MMM YYYY HH:mm:ss +0000"
 
-  // Fetch data from local json files
-  $.ajax({
-    url:'files/articles.json',
-    dataType: 'json',
-    type: 'get',
-    cache: 'true',
-    success: function(data) {
-      $(data.articles).each(function(index, article) {
-        allArticles.push(article)
-        // Initialize article list
-        if (!articles.hasOwnProperty(article.category)) {
-          articles[article.category] = [];
-        }
-        articles[article.category].push(article)
-      });
-    }
-  }),
+  if (localStorage.getItem('DataAvailable')) {
+    var articles = JSON.parse(localStorage.getItem('articles')) // { Category: [article] }
+    var sources = JSON.parse(localStorage.getItem('sources'))
+    var allArticles = JSON.parse(localStorage.getItem('allArticles'))
+    var articlesRead = JSON.parse(localStorage.getItem('articlesRead'))  // [article]
+    var recs = JSON.parse(localStorage.getItem('recs'))
 
-  $.ajax({
-    url:'files/user.json',
-    dataType: 'json',
-    type: 'get',
-    cache: 'true',
-    success: function(user) {
-      articlesRead = user.articles_read
+  } else {
+    localStorage.setItem("DataAvailable", "available")  
+ 
+    var articles = {} // { Category: [article] }
+    var sources = {}
+    var allArticles = []
+    var articlesRead = []  // [article]
+    var recs = []
 
-      // recent-articles
-      console.log(articlesRead)
-      // biasAverage = calcuateBiasAverage(articlesRead, sources)
-      // console.log(biasAverage)
-
-      // allArticles.forEach(function(article) {
-      //   if (article['source'] === 'Fox News' || article['source'] === 'Fox Business' || article['source'] === 'theBlaze') {
-      //     recs.push(article)
-      //   }
-      // })
-
-      // console.log(allArticles)
-      // console.log(recs)
-
-      // // Display 10 recent articles
-      // $.each(recs.slice(0, 16), function(index, article) {
-
-      //   $("#fh5co-main").append(
-      //     '<a class="article" href="' + article.link + '" target="_blank">' +
-      //       '<div class="col-md-3 col-sm-6 col-padding">' +
-      //         '<div class="blog-entry">' +
-      //         '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
-      //         '<div class="desc">' +
-      //             '<h3>' + article.title + '</h3>' +
-      //             '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
-      //             '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
-      //           '</div>' +
-      //         '</div>' +
-      //       '</div>' +
-      //     '</a>'
-      //   ) });
-
-
-    }
-  }),
-
-  $.ajax({
-    url:'files/sources.json',
-    dataType: 'json',
-    type: 'get',
-    cache: 'true',
-    success: function(data) {
-      sources = data.sources
-    }
-  })
-
+    // Fetch data from local json files
+    $.ajax({
+      url:'files/articles.json',
+      dataType: 'json',
+      type: 'get',
+      cache: 'true',
+      success: function(data) {
+        $(data.articles).each(function(index, article) {
+          allArticles.push(article)
+          // Initialize article list
+          if (!articles.hasOwnProperty(article.category)) {
+            articles[article.category] = [];
+          }
+          articles[article.category].push(article)
+        });
+        localStorage.setItem("allArticles", JSON.stringify(allArticles))
+        localStorage.setItem("articles", JSON.stringify(articles))
+      }
+    }),
+  
+    $.ajax({
+      url:'files/user.json',
+      dataType: 'json',
+      type: 'get',
+      cache: 'true',
+      success: function(user) {
+        articlesRead = user.articles_read
+        localStorage.setItem("articlesRead", JSON.stringify(articlesRead))  
+      }
+    }),
+  
+    $.ajax({
+      url:'files/sources.json',
+      dataType: 'json',
+      type: 'get',
+      cache: 'true',
+      success: function(data) {
+        sources = data.sources
+        localStorage.setItem("sources", JSON.stringify(sources))
+      }
+    })
+  }
 
   $(".category-nav").click(function(event) {
 
@@ -95,31 +75,6 @@ $(document).ready(function() {
     // Append category name
     $("#fh5co-main").append('<div class="category-narrow-content"><h2 class="fh5co-heading">' + selectedCategory +  '</h2></div>');
 
-    // if (selectedCategory === 'Home') {
-    //   console.log('home')
-    //   allArticles.forEach(function(article) {
-    //     if (article['source'] === 'Fox News' || article['source'] === 'Fox Business' || article['source'] === 'theBlaze') {
-    //       recs.push(article)
-    //     }
-    //   })
-
-    //   $.each(recs.slice(0, 16), function(index, article) {
-    //     $("#fh5co-main").append(
-    //       '<a class="article" href="' + article.link + '" target="_blank">' +
-    //         '<div class="col-md-3 col-sm-6 col-padding">' +
-    //           '<div class="blog-entry">' +
-    //           '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
-    //           '<div class="desc">' +
-    //               '<h3>' + article.title + '</h3>' +
-    //               '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
-    //               '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
-    //             '</div>' +
-    //           '</div>' +
-    //         '</div>' +
-    //       '</a>'
-    //     );
-
-    //   })
     if (selectedCategory === 'Profile') {
       $("#fh5co-main").append(
         '<div class="fh5co-narrow-content">' +
@@ -145,6 +100,7 @@ $(document).ready(function() {
       allArticles.forEach(function(article) {
         if (article['source'] === 'Fox News' || article['source'] === 'Fox Business' || article['source'] === 'theBlaze') {
           recs.push(article)
+          localStorage.setItem("recs", JSON.stringify(recs))
         }
       })
 
@@ -170,42 +126,35 @@ $(document).ready(function() {
       makeGraphs(articlesRead, allArticles, sources)
     } else {
 
-    // Append articles data
-    $.each(articles[selectedCategory], function(index, article) {
-      $("#fh5co-main").append(
-        '<a class="article" href="' + article.link + '" target="_blank">' +
-          '<div class="col-md-3 col-sm-6 col-padding">' +
-            '<div class="blog-entry">' +
-            '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
-            '<div class="desc">' +
-                '<h3>' + article.title + '</h3>' +
-                '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
-                '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
+      // Append articles data
+      $.each(articles[selectedCategory], function(index, article) {
+        $("#fh5co-main").append(
+          '<a class="article" href="' + article.link + '" target="_blank">' +
+            '<div class="col-md-3 col-sm-6 col-padding">' +
+              '<div class="blog-entry">' +
+              '<div class="blog-img"><img src="' + article.image + '"' + ' class="img-responsive"></div>' +
+              '<div class="desc">' +
+                  '<h3>' + article.title + '</h3>' +
+                  '<span><small>' + article.date.substring(0, 7) + " - " + article.date.substring(8, 17) + '</small></span>' +
+                  '<div class="lead">Read More <i class="icon-arrow-right3"></i></div>' +
+                '</div>' +
               '</div>' +
             '</div>' +
-          '</div>' +
-        '</a>'
-      );
-    });
-  }
+          '</a>'
+        );
+      });
+    }
   });
 
   // Index of clicked article is equivalent to the index of the <a> tag child under #articles-container
   $("#fh5co-main").on("click", "a", function() {
     selectedArticleIndex = $(this).index() - 1 // Array starts at 0
-    console.log(selectedArticleIndex)
     selectedArticle = articles[selectedCategory][selectedArticleIndex]
-
     var readArticle = {}
     readArticle["date"] = moment().format(dateFormat);
     readArticle["article"] = selectedArticle
-    console.log(readArticle)
     articlesRead.push(readArticle)
-    console.log(articlesRead)
-
-    // console.log(calcuateBiasAverage(articlesRead, sources))
-    // console.log(articlesRead)
-    // console.log(calcuateBiasAverage(articlesRead, sources))
+    localStorage.setItem("articlesRead", JSON.stringify(articlesRead))
   });
 
 function makeGraphs(articlesRead, allArticles, sources) {
@@ -302,7 +251,6 @@ function makeGraphs(articlesRead, allArticles, sources) {
 
   // articlesRead
   // articlesRead = articlesRead.sort(compareDate)
-
 
   // sorting/organizing articles
   articlesRead = articlesRead.sort(compareDate)
