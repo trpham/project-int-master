@@ -1,0 +1,26 @@
+{
+	"sources": {
+		"New York Times": -1.0,
+		"Washington Post": -1.0,
+		"MSNBC": -1.0,
+		"The New Yorker": -1.0,
+		"POLITICO Magazine": -1.0,
+		"NPR.org": -0.75,
+		"PBS NewsHour": -0.75,
+		"CBS News": -0.75,
+		"NBC News": -0.75,
+		"CNNMoney": -0.75,
+		"CNN": -0.75,
+		"Bloomberg.com": -0.75,
+		"ABC News": -0.5,
+		"USA TODAY": -0.5,
+		"the Guardian": -0.5,
+		"The Economist": -0.25,
+		"BBC News": -0.25,
+		"WSJ": 0.0,
+		"TheBlaze": 1.0,
+		"Fox News": 1.0,
+		"Fox Business": 1.0
+
+	}
+}
