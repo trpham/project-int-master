@@ -34,14 +34,6 @@
     },
     {
         "category": "Economy",
-        "title": "Titans of the Gig Economy",
-        "image": "https://media.newyorker.com/photos/590cd9e04e65be2f29d554ac/master/w_1548,c_limit/Ostown_1-ANDRE.jpg",
-        "source": "The New Yorker",
-        "link": "https://www.newyorker.com/humor/daily-shouts/titans-of-the-gig-economy",
-        "date": "Tue, 28 Nov 2017 00:00:00 GMT"
-    },
-    {
-        "category": "Economy",
         "title": "There’s a Dangerous Bubble in the Fossil-Fuel Economy, and the Trump Administration Is Making It Worse",
         "image": "https://media.newyorker.com/photos/59dd43874089f76364a9daf3/master/w_1298,c_limit/Kormann-The-carbon-bubble-EPA-repeal-Clean-Power-Plan.jpg",
         "source": "The New Yorker",
@@ -95,14 +87,6 @@
         "source": "PBS NewsHour",
         "link": "https://www.pbs.org/newshour/show/why-the-cranberries-on-your-thanksgiving-table-might-be-more-trouble-than-theyre-worth-for-local-growers",
         "date": "Thu, 23 Nov 2017 23:30:00 GMT"
-    },
-    {
-        "category": "Economy",
-        "title": "Black Friday's surprise big seller? Guns",
-        "image": "https://www.cbsnews.com/charts/advanced/marketindices.chart?ID_NOTATION=324985&TIME_SPAN=1D",
-        "source": "CBS News",
-        "link": "https://www.cbsnews.com/news/black-friday-surprise-big-seller-guns/",
-        "date": "Mon, 27 Nov 2017 13:44:00 GMT"
     },
     {
         "category": "Economy",
@@ -402,14 +386,6 @@
     },
     {
         "category": "U.S.",
-        "title": "The dispute over Trump’s consumer appointment could hinge on one word",
-        "image": "https://media2.s-nbcnews.com/j/newscms/2017_48/2240306/171127-mick-mulvaney-se-106p_56f07ae6011662d32ebe0379b47c896f.nbcnews-fp-1200-630.jpg",
-        "source": "NBC News",
-        "link": "https://www.nbcnews.com/news/crime-courts/dispute-over-trump-s-consumer-appointment-could-hinge-one-word-n824341",
-        "date": "Mon, 27 Nov 2017 18:27:00 GMT"
-    },
-    {
-        "category": "U.S.",
         "title": "Fear — and big sales — propelled record-breaking Black Friday gun checks",
         "image": "https://media1.s-nbcnews.com/j/newscms/2017_48/2240276/171127-handguns-sales-mn-1300_29dba0e4dea22774d3eb9bc59bb7a547.nbcnews-ux-600-480.jpg",
         "source": "NBC News",
@@ -543,14 +519,6 @@
         "source": "TheBlaze",
         "link": "http://www.theblaze.com/news/2017/11/27/denzel-washington-speaks-out-dont-blame-the-system-for-black-incarceration-it-starts-at-home",
         "date": "Mon, 27 Nov 2017 10:26:14 GMT"
-    },
-    {
-        "category": "U.S.",
-        "title": "A KKK member has been banned from a Florida campus, but is it legal?",
-        "image": "https://www.theblaze.com/wp-content/uploads/2017/11/gettyimages-810870312-1280x720.jpg",
-        "source": "TheBlaze",
-        "link": "http://www.theblaze.com/news/2017/11/27/a-kkk-member-has-been-banned-from-a-florida-campus-but-is-it-legal",
-        "date": "Mon, 27 Nov 2017 22:00:02 GMT"
     },
     {
         "category": "U.S.",
@@ -791,22 +759,6 @@
         "source": "The Economist",
         "link": "https://www.economist.com/news/science-and-technology/21731612-it-came-outer-space-and-then-went-back-there-first-known-interstellar",
         "date": "Sat, 25 Nov 2017 00:00:00 GMT"
-    },
-    {
-        "category": "Science & Technology",
-        "title": "Poisoning threat to red kite revival",
-        "image": "https://ichef.bbci.co.uk/news/1024/cpsprodpb/6423/production/_98953652_gettyimages-579164916.jpg",
-        "source": "BBC News",
-        "link": "http://www.bbc.com/news/science-environment-42097801",
-        "date": "Tue, 28 Nov 2017 00:00:00 GMT"
-    },
-    {
-        "category": "Science & Technology",
-        "title": "Uber Hack Clouds Valuation as SoftBank Readies Bid",
-        "image": "https://si.wsj.net/public/resources/images/BN-WH384_39xru_M_20171124200416.jpg?width=860&height=573",
-        "source": "WSJ",
-        "link": "https://www.wsj.com/articles/softbank-weighs-offer-price-for-uber-shares-days-after-hack-disclosure-1511704801",
-        "date": "Sun, 26 Nov 2017 09:00:00 GMT"
     },
     {
         "category": "Science & Technology",
@@ -1111,14 +1063,6 @@
         "source": "TheBlaze",
         "link": "http://www.theblaze.com/news/2017/11/27/south-korea-to-reconsider-its-abortion-ban",
         "date": "Mon, 27 Nov 2017 11:25:42 GMT"
-    },
-    {
-        "category": "World",
-        "title": "Listen: A high-ranking North Korean soldier escaped over the border in ‘shocking’ defection",
-        "image": "http://www.theblaze.com/wp-content/uploads/2017/11/gettyimages-842418008.jpg",
-        "source": "TheBlaze",
-        "link": "http://www.theblaze.com/podcasts/listen-a-high-ranking-north-korean-soldier-escaped-over-the-border-in-shocking-defection/",
-        "date": "Mon, 27 Nov 2017 13:25:00 GMT"
     },
     {
         "category": "World",
