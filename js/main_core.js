@@ -5,17 +5,17 @@ $(document).ready(function() {
   var selectedArticleIndex = -1  // Current selected article index in articles
   var dateFormat = "ddd, DD MMM YYYY HH:mm:ss +0000"
 
-  if (localStorage.getItem('DataAvailable')) {
-    
-    var articles = JSON.parse(localStorage.getItem('articles')) // { Category: [article] }
-    var sources = JSON.parse(localStorage.getItem('sources'))
-    var allArticles = JSON.parse(localStorage.getItem('allArticles'))
-    var articlesRead = JSON.parse(localStorage.getItem('articlesRead'))  // [article]
-    var recs = JSON.parse(localStorage.getItem('recs'))
+  if (sessionStorage.getItem('DataAvailable')) {
+
+    var articles = JSON.parse(sessionStorage.getItem('articles')) // { Category: [article] }
+    var sources = JSON.parse(sessionStorage.getItem('sources'))
+    var allArticles = JSON.parse(sessionStorage.getItem('allArticles'))
+    var articlesRead = JSON.parse(sessionStorage.getItem('articlesRead'))  // [article]
+    var recs = JSON.parse(sessionStorage.getItem('recs'))
 
   } else {
 
-    localStorage.setItem("DataAvailable", "available")  
+    sessionStorage.setItem("DataAvailable", "available")  
  
     var articles = {} // { Category: [article] }
     var sources = {}
@@ -38,8 +38,8 @@ $(document).ready(function() {
           }
           articles[article.category].push(article)
         });
-        localStorage.setItem("allArticles", JSON.stringify(allArticles))
-        localStorage.setItem("articles", JSON.stringify(articles))
+        sessionStorage.setItem("allArticles", JSON.stringify(allArticles))
+        sessionStorage.setItem("articles", JSON.stringify(articles))
       }
     }),
   
@@ -50,7 +50,7 @@ $(document).ready(function() {
       cache: 'true',
       success: function(user) {
         articlesRead = user.articles_read
-        localStorage.setItem("articlesRead", JSON.stringify(articlesRead))  
+        sessionStorage.setItem("articlesRead", JSON.stringify(articlesRead))  
       }
     }),
   
@@ -61,7 +61,7 @@ $(document).ready(function() {
       cache: 'true',
       success: function(data) {
         sources = data.sources
-        localStorage.setItem("sources", JSON.stringify(sources))
+        sessionStorage.setItem("sources", JSON.stringify(sources))
       }
     })
   }
@@ -102,7 +102,7 @@ $(document).ready(function() {
       allArticles.forEach(function(article) {
         if (article['source'] === 'Fox News' || article['source'] === 'Fox Business' || article['source'] === 'theBlaze') {
           recs.push(article)
-          localStorage.setItem("recs", JSON.stringify(recs))
+          sessionStorage.setItem("recs", JSON.stringify(recs))
         }
       })
 
@@ -156,7 +156,7 @@ $(document).ready(function() {
     readArticle["date"] = moment().format(dateFormat);
     readArticle["article"] = selectedArticle
     articlesRead.push(readArticle)
-    localStorage.setItem("articlesRead", JSON.stringify(articlesRead))
+    sessionStorage.setItem("articlesRead", JSON.stringify(articlesRead))
   });
 
 function makeGraphs(articlesRead, allArticles, sources) {
