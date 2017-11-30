@@ -6,6 +6,7 @@ $(document).ready(function() {
   var dateFormat = "ddd, DD MMM YYYY HH:mm:ss +0000"
 
   if (localStorage.getItem('DataAvailable')) {
+    
     var articles = JSON.parse(localStorage.getItem('articles')) // { Category: [article] }
     var sources = JSON.parse(localStorage.getItem('sources'))
     var allArticles = JSON.parse(localStorage.getItem('allArticles'))
@@ -13,6 +14,7 @@ $(document).ready(function() {
     var recs = JSON.parse(localStorage.getItem('recs'))
 
   } else {
+
     localStorage.setItem("DataAvailable", "available")  
  
     var articles = {} // { Category: [article] }
