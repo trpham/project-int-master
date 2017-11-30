@@ -108,7 +108,7 @@ $(document).ready(function() {
 
       $('#fh5co-main').append('<div class="category-narrow-content"><h2 class="fh5co-heading" data-animate-effect="fadeInLeft">Recommended Articles</h2></div>')
 
-      $.each(recs.slice(0, 16), function(index, article) {
+      $.each(recs.slice(0, 8), function(index, article) {
         $("#fh5co-main").append(
           '<a class="article" href="' + article.link + '" target="_blank">' +
             '<div class="col-md-3 col-sm-6 col-padding">' +
